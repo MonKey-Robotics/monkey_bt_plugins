@@ -2,12 +2,12 @@
 #include <behaviortree_cpp/bt_factory.h>
 #include <behaviortree_cpp/behavior_tree.h>
 #include "behaviortree_ros2/bt_service_node.hpp"
-#include "arm_msgs/srv/inverse_kinematics.hpp"
+#include "monkey_std_msgs/srv/inverse_kinematics.hpp"
 
 #pragma once
 using namespace BT;
 
-class ArmInverseKinematics: public RosServiceNode<arm_msgs::srv::InverseKinematics>
+class ArmInverseKinematics: public RosServiceNode<monkey_std_msgs::srv::InverseKinematics>
 {
   private:
     std::shared_ptr<rclcpp::Node> ros2_node;
@@ -15,7 +15,7 @@ class ArmInverseKinematics: public RosServiceNode<arm_msgs::srv::InverseKinemati
     ArmInverseKinematics(const std::string& name,
                     const NodeConfig& conf,
                     const RosNodeParams& params)
-      : RosServiceNode<arm_msgs::srv::InverseKinematics>(name, conf, params)
+      : RosServiceNode<monkey_std_msgs::srv::InverseKinematics>(name, conf, params)
     {
       ros2_node = node_.lock();
     }

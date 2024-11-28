@@ -2,12 +2,12 @@
 #include <behaviortree_cpp/bt_factory.h>
 #include <behaviortree_cpp/behavior_tree.h>
 #include "behaviortree_ros2/bt_action_node.hpp"
-#include "arm_msgs/action/home_request.hpp"
+#include "monkey_std_msgs/action/home_request.hpp"
 
 #pragma once
 using namespace BT;
 
-class HomeRequestAction: public RosActionNode<arm_msgs::action::HomeRequest>
+class HomeRequestAction: public RosActionNode<monkey_std_msgs::action::HomeRequest>
 {
 private:
   std::shared_ptr<rclcpp::Node> ros2_node;
@@ -15,7 +15,7 @@ public:
 HomeRequestAction(const std::string& name,
                   const NodeConfig& conf,
                   const RosNodeParams& params)
-    : RosActionNode<arm_msgs::action::HomeRequest>(name, conf, params)
+    : RosActionNode<monkey_std_msgs::action::HomeRequest>(name, conf, params)
   {
     ros2_node = node_.lock();
   }

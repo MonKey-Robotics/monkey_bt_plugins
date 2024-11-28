@@ -2,12 +2,12 @@
 #include <behaviortree_cpp/bt_factory.h>
 #include <behaviortree_cpp/behavior_tree.h>
 #include "behaviortree_ros2/bt_action_node.hpp"
-#include "arm_msgs/action/set_target.hpp"
+#include "monkey_std_msgs/action/set_target.hpp"
 
 #pragma once
 using namespace BT;
 
-class SetTargetAction: public RosActionNode<arm_msgs::action::SetTarget>
+class SetTargetAction: public RosActionNode<monkey_std_msgs::action::SetTarget>
 {
 private:
   std::shared_ptr<rclcpp::Node> ros2_node;
@@ -15,7 +15,7 @@ public:
 SetTargetAction(const std::string& name,
                   const NodeConfig& conf,
                   const RosNodeParams& params)
-    : RosActionNode<arm_msgs::action::SetTarget>(name, conf, params)
+    : RosActionNode<monkey_std_msgs::action::SetTarget>(name, conf, params)
   {
     ros2_node = node_.lock();
   }

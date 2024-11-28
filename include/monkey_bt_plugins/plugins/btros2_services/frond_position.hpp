@@ -2,13 +2,13 @@
 #include <behaviortree_cpp/bt_factory.h>
 #include <behaviortree_cpp/behavior_tree.h>
 #include "behaviortree_ros2/bt_service_node.hpp"
-#include "hand_interfaces/srv/frond_position.hpp"
+#include "monkey_std_msgs/srv/frond_position.hpp"
 
 #pragma once
 using namespace BT;
 
 
-class FrondPositionService : public BT::RosServiceNode<hand_interfaces::srv::FrondPosition>
+class FrondPositionService : public BT::RosServiceNode<monkey_std_msgs::srv::FrondPosition>
 {
 private:
   std::string service_suffix_;
@@ -16,7 +16,7 @@ private:
 public:
   explicit FrondPositionService(const std::string& name, const BT::NodeConfig& conf,
                           const BT::RosNodeParams& params)
-    : RosServiceNode<hand_interfaces::srv::FrondPosition>(name, conf, params)
+    : RosServiceNode<monkey_std_msgs::srv::FrondPosition>(name, conf, params)
   {
     ros2_node = node_.lock(); //VERY IMPORTANT >> To make it into shared/strong ptr
   }

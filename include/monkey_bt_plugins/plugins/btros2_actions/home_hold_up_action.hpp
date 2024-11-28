@@ -2,13 +2,13 @@
 #include <behaviortree_cpp/bt_factory.h>
 #include <behaviortree_cpp/behavior_tree.h>
 #include "behaviortree_ros2/bt_action_node.hpp"
-#include "cutting_planner_interfaces/action/hold_up_home.hpp"
+#include "monkey_std_msgs/action/hold_up_home.hpp"
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 #pragma once
 using namespace BT;
 
-class HoldUpHome: public RosActionNode<cutting_planner_interfaces::action::HoldUpHome>
+class HoldUpHome: public RosActionNode<monkey_std_msgs::action::HoldUpHome>
 {
   private:
     rclcpp::Node::SharedPtr ros2_node;
@@ -16,7 +16,7 @@ class HoldUpHome: public RosActionNode<cutting_planner_interfaces::action::HoldU
     HoldUpHome(const std::string& name, 
                     const NodeConfig& conf, 
                     const RosNodeParams& params) 
-    : RosActionNode<cutting_planner_interfaces::action::HoldUpHome>(name, conf, params)
+    : RosActionNode<monkey_std_msgs::action::HoldUpHome>(name, conf, params)
     {
       ros2_node = node_.lock();
     }
