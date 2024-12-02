@@ -9,7 +9,7 @@
 #pragma once
 using namespace BT;
 
-class CutterControl: public RosActionNode<cutter_interfaces::action::CutterControl>
+class CutterControl: public RosActionNode<monkey_std_msgs::action::CutterControl>
 {
   private:
     rclcpp::Node::SharedPtr ros2_node;
@@ -17,7 +17,7 @@ class CutterControl: public RosActionNode<cutter_interfaces::action::CutterContr
     CutterControl(const std::string& name, 
                     const NodeConfig& conf, 
                     const RosNodeParams& params) 
-    : RosActionNode<cutter_interfaces::action::CutterControl>(name, conf, params)
+    : RosActionNode<monkey_std_msgs::action::CutterControl>(name, conf, params)
     {
       ros2_node = node_.lock();
     }
